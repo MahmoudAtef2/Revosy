@@ -1,0 +1,532 @@
+/* ======================
+   VENUES PAGE STYLES
+   ====================== */
+
+/* Header Section */
+.venues-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.venues-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.search-create-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 1.875rem;
+    padding: 0.3rem 1.25rem;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+    width: 28rem;
+    max-width: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.search-box:hover {
+    box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.15);
+}
+
+.search-icon {
+    color: #7c7474;
+    margin-right: 0.625rem;
+    font-size: 1rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 0.625rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+/* Create Button */
+.create-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    border-radius: 1.875rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.2);
+}
+
+.create-btn:hover {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.375rem 1.25rem rgba(76, 175, 80, 0.3);
+}
+
+/* Venues Listing */
+.venue-categories {
+    margin-top: 2.5rem;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #7c7474, transparent);
+    margin-bottom: 1.875rem;
+    width: 100%;
+}
+
+.venues-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+    gap: 1.875rem;
+    margin-top: 1.25rem;
+}
+
+/* Venue Card */
+.venue-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.venue-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 0.75rem 1.5625rem rgba(0, 0, 0, 0.15);
+}
+
+.venue-card img {
+    width: 100%;
+    height: 13.75rem;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.venue-content {
+    padding: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.venue-card h3 {
+    margin-bottom: 0.625rem;
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.venue-card p {
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.venue-card p i {
+    color: #7c7474;
+    width: 1.125rem;
+    text-align: center;
+}
+
+/* Contact Number Specific */
+.venue-card .fa-phone {
+    color: #5e5757;
+}
+
+/* Venue Footer - Delete Button */
+.venue-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.9375rem;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s;
+    margin-left: auto;
+}
+
+.delete-btn:hover {
+    color: #a71d2a;
+    text-decoration: underline;
+}
+
+.delete-btn i {
+    font-size: 1rem;
+}
+
+/* ======================
+   CREATE VENUE FORM
+   ====================== */
+.venue-form-container {
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.08);
+}
+
+.venue-form-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 2.2rem;
+}
+
+.venue-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group small {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+/* File Upload */
+.file-upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.file-input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #f5f5f5;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px dashed #aaa;
+}
+
+.file-label:hover {
+    background-color: #e0e0e0;
+}
+
+.file-label i {
+    color: #7c7474;
+}
+
+.file-name {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.submit-btn {
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.cancel-btn {
+    padding: 0.8rem 1.8rem;
+    background: #f5f5f5;
+    color: #333;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.cancel-btn:hover {
+    background: #e0e0e0;
+}
+
+/* ======================
+   PROFILE PAGE STYLES
+   ====================== */
+.profile-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.profile-sidebar {
+    width: 300px;
+    background: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.08);
+    height: fit-content;
+}
+
+.profile-main {
+    flex: 1;
+    background: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.08);
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border: 5px solid #f5f5f5;
+}
+
+.profile-sidebar h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.profile-email, .profile-join-date {
+    color: #666;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-email i, .profile-join-date i {
+    color: #7c7474;
+    width: 1.2rem;
+    text-align: center;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.3rem;
+}
+
+.profile-header h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.no-venues {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.no-venues h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.no-venues p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Profile Page Venue Footer */
+.profile-main .venue-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.9375rem;
+}
+
+.profile-main .delete-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s;
+}
+
+.profile-main .delete-btn:hover {
+    color: #a71d2a;
+    text-decoration: underline;
+}
+
+/* ======================
+   RESPONSIVE ADJUSTMENTS
+   ====================== */
+@media screen and (max-width: 768px) {
+    .search-create-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .venues-container {
+        grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+    }
+    
+    .venues-header h1,
+    .venue-form-container h1 {
+        font-size: 2rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .submit-btn,
+    .cancel-btn {
+        width: 100%;
+    }
+    
+    .profile-container {
+        flex-direction: column;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+    }
+    
+    .profile-stats {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .venue-card {
+        margin-bottom: 1.25rem;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+    }
+    
+    .create-btn {
+        padding: 0.75rem 1.25rem;
+    }
+    
+    .venue-form-container {
+        padding: 1rem;
+    }
+    
+    .file-upload {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .profile-sidebar, .profile-main {
+        padding: 1.5rem;
+    }
+    
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .stat-item {
+        padding: 0 1rem;
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Revosy</title>
+    
+    <!-- CSS links -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Flash messages display -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% set category, message = messages[0] %}
+            <div class="alerts">
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Header section with dynamic navigation based on authentication -->
+    <header>
+        <div class="logo">
+            <img src="/static/images/1607213382-Revosy.webp" class="logo-img" alt="Revosy Logo">
+            <span>Revosy</span>
+        </div>
+        <nav>
+            <ul class="nav">
+                <div class="nav-center">
+                    {% if user.is_authenticated %}
+                    <li><a href="/home" class="{% if request.path == '/home' %}active{% endif %}">Home</a></li>
+                    <li><a href="/venues" class="{% if request.path == '/venues' %}active{% endif %}">Venues</a></li>
+                    {% else %}
+                    <li><a href="/home" class="{% if request.path == '/home' %}active{% endif %}">Home</a></li>
+                    <li><a href="/sign-up" class="{% if request.path == '/sign-up' %}active{% endif %}">Sign Up</a></li>
+                    <li><a href="/signin" class="{% if request.path == '/signin' %}active{% endif %}">Sign In</a></li>
+                    {% endif %}
+                </div>
+                
+                <!-- Right side navigation for authenticated users -->
+                {% if user.is_authenticated %}
+                <div class="nav-right">
+                    <li><a href="/logout">Logout</a></li>
+                    <a href="/profile" class="user-icon">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </a>
+                </div>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content - Banner section -->
+    <main class="main-content">
+        <section class="banner">
+            <h1>Welcome to Revosy</h1>
+            <div class="banner-content">
+                <div class="banner-text">
+                    <p>At Revosy, we make booking simple and hassle-free.</p>
+                    <p>Whether it's appointments, events, or experiences,</p>
+                    <p>reserve your spot in just a few clicks. Enjoy</p>
+                    <p>real-time availability, secure payments,</p>
+                    <p>and a smooth, personalized experience.</p>
+                    <p>Ready to book? Let's Go!</p>
+                    <a href="/venues" class="btn">Book Now</a>
+                </div>
+                <div class="banner-image">
+                    <img src="/static/images/original-374461b5f5a9f5ec2a3eb3c7d117dff3.gif" alt="Revosy Booking System">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript file for alerts -->
+    <script src="/static/Java/alert.js"></script>
+</body>
+</html>

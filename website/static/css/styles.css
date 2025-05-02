@@ -1,0 +1,401 @@
+/* ======================
+   GLOBAL STYLES
+   ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+                 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 60px;
+    min-height: 100vh;
+}
+
+/* ======================
+   HEADER & NAVIGATION STYLES
+   ====================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #7c7474;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 15px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.nav a:hover,
+.nav a.active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.user-icon {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-left: 10px;
+}
+
+.user-icon:hover {
+    transform: scale(1.1);
+}
+
+/* ======================
+   MAIN CONTENT STYLES
+   ====================== */
+.main-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px 0;
+}
+
+/* ======================
+   HOME PAGE STYLES
+   ====================== */
+.banner {
+    background-color: #a3a3a3;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.banner h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.banner-text {
+    flex: 1;
+}
+
+.banner-text p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.banner-image {
+    flex: 1;
+    text-align: center;
+}
+
+.banner-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================
+   BUTTON STYLES
+   ====================== */
+.btn, .submit-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn:hover, .submit-btn:hover {
+    background-color: #363636;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ======================
+   AUTH FORM STYLES
+   ====================== */
+.auth-form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #a3a3a3;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    transition: all 0.3s;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.footer-link {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #363636;
+    text-decoration: underline;
+}
+
+/* ======================
+   ALERTS STYLES
+   ====================== */
+.alerts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    z-index: 1000;
+    text-align: center;
+    pointer-events: none;
+}
+
+.alert {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    min-width: 280px;
+    max-width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    animation: 
+        fadeIn 0.4s ease-out forwards, 
+        fadeOut 0.4s ease-in 3s forwards;
+    pointer-events: auto;
+    font-size: 15px;
+    line-height: 1.5;
+    color: white;
+    font-weight: 500;
+}
+
+.alert-success {
+    background-color: #28a745;
+}
+
+.alert-error,
+.alert-danger {
+    background-color: #dc3545;
+}
+
+.alert-info {
+    background-color: #17a2b8;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-25px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes fadeOut {
+    from { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+    to { 
+        opacity: 0; 
+        transform: translateY(-25px); 
+    }
+}
+
+/* ======================
+   PROFILE PAGE BUTTON STYLES
+   ====================== */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* For the "Create Your First Venue" button in no-venues section */
+.no-venues .btn-primary {
+    margin-top: 0;
+}
+
+/* ======================
+   RESPONSIVE DESIGN
+   ====================== */
+@media screen and (max-width: 768px) {
+    .main-content {
+        width: 95%;
+    }
+    
+    .banner-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .banner {
+        padding: 30px;
+    }
+    
+    .logo span {
+        display: none;
+    }
+    
+    .nav-center {
+        gap: 10px;
+    }
+    
+    .auth-form {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 0 10px;
+    }
+    
+    .nav a {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+    
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .banner {
+        padding: 20px;
+    }
+    
+    .banner h1 {
+        font-size: 2rem;
+    }
+}

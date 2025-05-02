@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Venue - Revosy</title>
+    
+    <!-- CSS links -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/venues.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Flash messages display -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <div class="alerts">
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Header section with dynamic navigation -->
+    <header>
+        <div class="logo">
+            <img src="/static/images/1607213382-Revosy.webp" class="logo-img" alt="Revosy Logo">
+            <span>Revosy</span>
+        </div>
+        <nav>
+            <ul class="nav">
+                <div class="nav-center">
+                    {% if user.is_authenticated %}
+                    <li><a href="/home" class="{% if request.path == '/home' %}active{% endif %}">Home</a></li>
+                    <li><a href="/venues" class="{% if request.path == '/venues' %}active{% endif %}">Venues</a></li>
+                    {% endif %}
+                </div>
+                
+                <!-- Right side navigation for authenticated users -->
+                {% if user.is_authenticated %}
+                <div class="nav-right">
+                    <li><a href="/logout">Logout</a></li>
+                    <a href="/profile" class="user-icon">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </a>
+                </div>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content - Venue creation form -->
+    <main class="main-content">
+        <section class="venue-form-container">
+            <h1>Create New Venue</h1>
+            <form method="POST" enctype="multipart/form-data" class="venue-form">
+                <!-- Venue Name field -->
+                <div class="form-group">
+                    <label for="title">Venue Name*</label>
+                    <input type="text" id="title" name="title" class="form-input" placeholder="Enter venue name" required>
+                </div>
+                
+                <!-- Location field -->
+                <div class="form-group">
+                    <label for="location">Location*</label>
+                    <input type="text" id="location" name="location" class="form-input" placeholder="Enter venue location" required>
+                </div>
+                
+                <!-- Price field -->
+                <div class="form-group">
+                    <label for="price">Price per day ($)*</label>
+                    <input type="number" id="price" name="price" class="form-input" placeholder="Enter price" min="0" required>
+                </div>
+                
+                <!-- Contact Number field -->
+                <div class="form-group">
+                    <label for="contact_number">Contact Number*</label>
+                    <input type="tel" id="contact_number" name="contact_number" class="form-input" placeholder="Enter contact number" required>
+                </div>
+                
+                <!-- Image upload field -->
+                <div class="form-group">
+                    <label for="image">Venue Photo*</label>
+                    <div class="file-upload">
+                        <input type="file" id="image" name="image" class="file-input" accept="image/*" required>
+                        <label for="image" class="file-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Choose a file</span>
+                        </label>
+                        <span class="file-name" id="file-name">No file chosen</span>
+                    </div>
+                    <small>Accepted formats: JPG, PNG, JPEG (Max 5MB)</small>
+                </div>
+                
+                <!-- Form actions (submit and cancel) -->
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Create Venue</button>
+                    <a href="/venues" class="cancel-btn">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    
+    <!-- JavaScript files -->
+    <script src="/static/Java/venues.js"></script>
+    <script src="/static/Java/alert.js"></script>
+</body>
+</html>

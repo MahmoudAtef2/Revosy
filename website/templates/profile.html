@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Revosy</title>
+    
+    <!-- CSS links -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/venues.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Flash messages display -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% set category, message = messages[0] %}
+            <div class="alerts">
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Header section with dynamic navigation -->
+    <header>
+        <div class="logo">
+            <img src="/static/images/1607213382-Revosy.webp" class="logo-img" alt="Revosy Logo">
+            <span>Revosy</span>
+        </div>
+        <nav>
+            <ul class="nav">
+                <div class="nav-center">
+                    {% if user.is_authenticated %}
+                    <li><a href="/home" class="{% if request.path == '/home' %}active{% endif %}">Home</a></li>
+                    <li><a href="/venues" class="{% if request.path == '/venues' %}active{% endif %}">Venues</a></li>
+                    {% endif %}
+                </div>
+                
+                <!-- Right side navigation for authenticated users -->
+                {% if user.is_authenticated %}
+                <div class="nav-right">
+                    <li><a href="/logout">Logout</a></li>
+                    <a href="/profile" class="user-icon {% if request.path == '/profile' %}active{% endif %}">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </a>
+                </div>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content - Profile section -->
+    <main class="main-content">
+        <section class="profile-container">
+            <!-- Profile sidebar with user info -->
+            <div class="profile-sidebar">
+                <img src="{{ url_for('static', filename='images/user_image.jpg') }}" alt="Profile Picture" class="profile-picture">
+                <h2>{{ user.username }}</h2>
+                <p class="profile-email"><i class="fas fa-envelope"></i> {{ user.email }}</p>
+                <p class="profile-join-date"><i class="fas fa-calendar-alt"></i> Joined {{ user.date_created.strftime('%B %Y') }}</p>
+                
+                <!-- User statistics -->
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">{{ venues|length }}</div>
+                        <div class="stat-label">Venues</div>
+                    </div>
+                </div>
+                
+                <!-- Add Venue button -->
+                <!-- <a href="/create-venue" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Venue
+                </a> -->
+            </div>
+            
+            <!-- Main profile content - User's venues -->
+            <div class="profile-main">
+                <div class="profile-header">
+                    <h1>My Venues</h1>
+                    <div class="divider"></div>
+                </div>
+                
+                {% if venues %}
+                <div class="venues-container">
+                    {% for venue in venues %}
+                    <div class="venue-card">
+                        <img src="/static/uploads/{{ venue.image }}" alt="{{ venue.title }}" loading="lazy">
+                        <div class="venue-content">
+                            <h3>{{ venue.title }}</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> {{ venue.location }}</p>
+                            <p><i class="fas fa-tag"></i> ${{ venue.price }} per day</p>
+                            <p><i class="fas fa-phone"></i> {{ venue.contact_number }}</p>
+                            <div class="venue-footer">
+                                <form action="{{ url_for('views.delete_venue', id=venue.id) }}" method="POST" class="delete-form">
+                                    <button type="submit" class="delete-btn" onclick="return confirm('Are you sure you want to delete this venue?')">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <!-- Empty state when user has no venues -->
+                <div class="no-venues">
+                    <h3>You haven't created any venues yet</h3>
+                    <p>Start by adding your first venue to get started</p>
+                    <a href="/create-venue" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Create Your First Venue
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript file for alerts -->
+    <script src="/static/Java/alert.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Revosy</title>
+    
+    <!-- CSS links -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Flash messages display -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% set category, message = messages[0] %}
+            <div class="alerts">
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Header section with logo and navigation -->
+    <header>
+        <div class="logo">
+            <img src="/static/images/1607213382-Revosy.webp" class="logo-img" alt="Revosy Logo">
+            <span>Revosy</span>
+        </div>
+        <nav>
+            <ul class="nav">
+                <div class="nav-center">
+                    <li><a href="/home" class="{% if request.path == '/home' %}active{% endif %}">Home</a></li>
+                    <li><a href="/sign-up" class="{% if request.path == '/sign-up' %}active{% endif %}">Sign Up</a></li>
+                    <li><a href="/signin" class="{% if request.path == '/signin' %}active{% endif %}">Sign In</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content - Sign Up form -->
+    <main class="main-content">
+        <form method="POST" class="auth-form">
+            <h2 class="form-title">Create Account</h2>
+            
+            <!-- Username field -->
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required class="form-input">
+            </div>
+            
+            <!-- Email field -->
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required class="form-input">
+            </div>
+            
+            <!-- Password field -->
+            <div class="form-group">
+                <label for="password1" class="form-label">Password</label>
+                <input type="password" id="password1" name="password1" placeholder="Create password" required class="form-input">
+            </div>
+            
+            <!-- Confirm Password field -->
+            <div class="form-group">
+                <label for="password2" class="form-label">Confirm Password</label>
+                <input type="password" id="password2" name="password2" placeholder="Confirm your password" required class="form-input">
+            </div>
+            
+            <!-- Submit button -->
+            <button type="submit" class="submit-btn">Sign Up</button>
+            
+            <!-- Link to Sign In page -->
+            <p class="form-footer">Already have an account? <a href="/signin" class="footer-link">Sign in</a></p>
+        </form>
+    </main>
+
+    <!-- JavaScript file for alerts -->
+    <script src="/static/Java/alert.js"></script>
+</body>
+</html>
